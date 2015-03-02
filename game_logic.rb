@@ -1,6 +1,9 @@
+require_relative 'response'
+
 class GameLogic
 
 attr_reader :secret, :guess_count, :responder
+attr_writer :start_time, :end_time
 
   def initialize
      @secret = generate_secret
@@ -39,7 +42,7 @@ attr_reader :secret, :guess_count, :responder
     elsif input == "q" || input == "quit"
       @responder.goodbye
     elsif input == "i"
-      @responder.info
+      @responder.instructions
     elsif input == "c" || input == "cheat"
        @responder.cheat(@secret)
      elsif input.length < 4

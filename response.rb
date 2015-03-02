@@ -26,10 +26,17 @@ class Response
     self
   end
 
+  def instructions
+    @message = "I have generated a beginner sequence with four elements made up of: (r)ed,
+    (g)reen, (b)lue, and (y)ellow. To play, enter a guess made up of these color combinations that is four letters in length. After you enter a guess I will provide clues to the secret code and you will continue guessing until the code is guessed. The game is scored based on number of guesses as well as time taken. Type (q)uit at any time to return to the main menu."
+    @status = :continue
+    self
+  end
+
   def correct_guess(secret, guess_count, display_elapsed_time)
     @message = "Congratulations! You guessed the sequence #{secret} in #{guess_count} guesses over #{display_elapsed_time}.
     Do you want to (p)lay again or (q)uit?"
-    @status = :won
+    @status = :continue
     self
   end
 
