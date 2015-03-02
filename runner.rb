@@ -1,13 +1,18 @@
-require_relative '../lib/mastermind'
+class Runner
 
-puts "Welcome to Mastermind"
+  def initialize
+    @run = true
+  end
 
-mastermind = Mastermind.new
-response = nil
+  def run
+    until @run == false
+      print "> "
+      yield(gets.chomp)
+    end
+  end
 
-until response && response.status == :won #|| :quit
-  print "> "
-  input = gets.chomp
-  response = mastermind.execute(input)
-  puts response.message
+  def stop
+    @run = false
+  end
+
 end
